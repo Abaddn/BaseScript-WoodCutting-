@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="WoodCutter">
+    <output-path>$USER_HOME$/osrs_emu_bot/scripts</output-path>
+    <root id="archive" name="WoodCutter.jar">
+      <element id="module-output" name="BlankScript" />
+    </root>
+  </artifact>
+</component>
