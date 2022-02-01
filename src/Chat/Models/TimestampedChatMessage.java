@@ -1,9 +1,9 @@
 package Chat.Models;
 
-public class ChatMessage extends com.snowygryphon.osrs.script.ChatMessage {
+public class TimestampedChatMessage extends com.snowygryphon.osrs.script.ChatMessage {
     private long _receivedTime;
 
-    public ChatMessage(String from, String message, long receivedTime) {
+    public TimestampedChatMessage(String from, String message, long receivedTime) {
         super(from, message);
         _receivedTime = receivedTime;
     }
@@ -11,5 +11,4 @@ public class ChatMessage extends com.snowygryphon.osrs.script.ChatMessage {
     public long getReceivedTime() {
         return _receivedTime;
     }
-
 }

@@ -1,5 +1,4 @@
 package Enums;
-//TODO: Sort these item ids!
 public enum Axe {
     BRONZE {
         @Override

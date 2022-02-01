@@ -19,5 +19,6 @@ public class BaseScript extends Script {
 
         if(!bot.isLoggedIn())
             return;
+
     }
 }
