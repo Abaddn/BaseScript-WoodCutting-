@@ -8,7 +8,6 @@ import org.joml.Vector2i;
 import java.util.ArrayList;
 import java.util.Random;
 
-//TODO: WIP
 public class BotProxy {
     private Bot BOT;
     private long LAST_INTERACTION_TIME;
@@ -192,161 +191,162 @@ public class BotProxy {
     }
 
     public boolean doUntil(int i, Bot.IsCompletedCallback isCompletedCallback, Runnable runnable) {
-        return false;
+        return BOT.doUntil(i, isCompletedCallback, runnable);
     }
 
     public boolean sleepUntil(int i, Bot.IsCompletedCallback isCompletedCallback) {
-        return false;
+        return BOT.sleepUntil(i, isCompletedCallback);
     }
 
     public ArrayList<Integer> getInventoryActionLog() {
-        return null;
+        return BOT.getInventoryActionLog();
     }
     
     public ArrayList<Integer> getActionLog() {
-        return null;
+        return BOT.getActionLog();
     }
     
     public WorldSwitcher getWorldSwitcher() {
-        return null;
+        return BOT.getWorldSwitcher();
     }
     
     public void stop() {
-
+        BOT.stop();
     }
     
     public BotSettingsStore getBotSettings() {
-        return null;
+        return BOT.getBotSettings();
     }
     
     public boolean isBotRunning() {
-        return false;
+        return BOT.isBotRunning();
     }
     
     public PathCalculator getPathCalculator() {
-        return null;
+        return BOT.getPathCalculator();
     }
     
     public WebWalker getWebWalker() {
-        return null;
+        return BOT.getWebWalker();
     }
     
     public boolean webWalkTo(WorldPos worldPos) {
-        return false;
+        return BOT.webWalkTo(worldPos);
     }
     
     public boolean webWalkTo(BankLocation bankLocation) {
-        return false;
+        return BOT.webWalkTo(bankLocation);
     }
 
     public EnergyManager getEnergyManager() {
-        return null;
+        return BOT.getEnergyManager();
     }
 
     public GenericSettingsHandler getGenericSettingsHandler() {
-        return null;
+        return BOT.getGenericSettingsHandler();
     }
     
     public RuntimeUI getRuntimeUI() {
-        return null;
+        return BOT.getRuntimeUI();
     }
 
     public void selectDialogOption(int i) {
-
+        BOT.selectDialogOption(i);
     }
     
     public void clickLoginButton() {
-
+        BOT.clickLoginButton();
     }
     
     public void clickDisconnectedOKButton() {
-
+        BOT.clickDisconnectedOKButton();
     }
 
     public int[] getVarBits() {
-        return new int[0];
+        return BOT.getVarBits();
     }
 
     public ConnectionState getConnectionState() {
-        return null;
+        return BOT.getConnectionState();
     }
 
     public void continueDialog() {
-
+        BOT.continueDialog();
     }
 
     public Camera getCamera() {
-        return null;
+        return BOT.getCamera();
     }
 
     public LocalPlayer getLocalPlayer() {
-        return null;
+        return BOT.getLocalPlayer();
     }
     
     public WorldObjects<Player> getPlayers() {
-        return null;
+        return BOT.getPlayers();
     }
     
     public WorldObjects<GroundObject> getGroundObjects() {
-        return null;
+        return BOT.getGroundObjects();
     }
     
     public GameObjects getGameObjects() {
-        return null;
+        return BOT.getGameObjects();
     }
     
     public WorldObjects<NPC> getNPCs() {
-        return null;
+        return BOT.getNPCs();
     }
     
     public Widget getRootWidget() {
-        return null;
+        return BOT.getRootWidget();
     }
     
     public StdWindows getStdWindows() {
-        return null;
+        return BOT.getStdWindows();
     }
     
     public InventoryWindow getInventory() {
-        return null;
+        return BOT.getInventory();
     }
     
     public BankWindow getBank() {
-        return null;
+        return BOT.getBank();
     }
     
     public EquipmentWindow getEquipment() {
-        return null;
+        return BOT.getEquipment();
     }
     
     public SpellsWindow getSpells() {
-        return null;
+        return BOT.getSpells();
     }
     
     public PrayerWindow getPrayer() {
-        return null;
+        return BOT.getPrayer();
     }
     
     public boolean isLoggedIn() {
-        return false;
+        return BOT.isLoggedIn();
     }
     
     public boolean isGameRunning() {
-        return false;
+        return BOT.isGameRunning();
     }
     
     public int getGlobalXOffset() {
-        return 0;
+        return BOT.getGlobalXOffset();
     }
     
     public int getGlobalYOffset() {
-        return 0;
+        return BOT.getGlobalYOffset();
     }
     
     public void updateData() {
+        BOT.updateData();
     }
     
     public String getInstallationDir() {
-        return null;
+        return BOT.getInstallationDir();
     }
 }
