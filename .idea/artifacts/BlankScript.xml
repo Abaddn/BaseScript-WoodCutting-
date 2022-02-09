@@ -2,7 +2,7 @@
   <artifact type="jar" build-on-make="true" name="BlankScript">
     <output-path>$USER_HOME$/osrs_emu_bot/scripts</output-path>
     <root id="archive" name="BlankScript.jar">
-      <element id="module-output" name="BlankScript" />
+      <element id="module-output" name="WoodCutter" />
     </root>
   </artifact>
 </component>
