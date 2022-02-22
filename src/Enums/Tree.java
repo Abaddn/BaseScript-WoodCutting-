@@ -22,7 +22,7 @@ public enum Tree implements Named {
         }
     },
 
-    OAK {
+    Oak {
         @Override
         public String getName() { return "Oak"; }
         @Override

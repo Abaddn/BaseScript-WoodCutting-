@@ -13,6 +13,9 @@ public enum Axe {
         public int ItemId() {
             return 1351;
         }
+
+        @Override
+        public String Name() { return "Bronze axe"; }
     },
 
     IRON {
@@ -28,6 +31,7 @@ public enum Axe {
         public int ItemId() {
             return 1349;
         }
+        public String Name() { return "Iron axe"; }
     },
 
     STEEL{
@@ -43,6 +47,7 @@ public enum Axe {
         public int ItemId() {
             return 1353;
         }
+        public String Name() { return "Steel axe"; }
     },
 
     BLACK{
@@ -58,6 +63,7 @@ public enum Axe {
         public int ItemId() {
             return 1361;
         }
+        public String Name() { return "Black axe"; }
     },
 
     MITHRIL{
@@ -73,6 +79,7 @@ public enum Axe {
         public int ItemId() {
             return 1355;
         }
+        public String Name() { return "Mithril axe"; }
     },
 
     ADAMANT{
@@ -88,6 +95,7 @@ public enum Axe {
         public int ItemId() {
             return 1357;
         }
+        public String Name() { return "Adamant axe"; }
     },
 
     RUNE{
@@ -103,6 +111,7 @@ public enum Axe {
         public int ItemId() {
             return 1359;
         }
+        public String Name() { return "Rune axe"; }
     },
 
     DRAGON {
@@ -120,6 +129,7 @@ public enum Axe {
         public int ItemId() {
             return 6739;
         }
+        public String Name() { return "Dragon axe"; }
     },
 
     INFERNAL {
@@ -137,6 +147,7 @@ public enum Axe {
         public int ItemId() {
             return 13241;
         }
+        public String Name() { return "Infernal axe"; }
     },
 
     INFERNAL_UNCHARGED {
@@ -154,9 +165,11 @@ public enum Axe {
         public int ItemId() {
             return 13242;
         }
+        public String Name() { return "Infernal axe (uncharged)"; }
     };
 
     public abstract boolean isMembers();
     public abstract int requiredLevel();
     public abstract int ItemId();
+    public abstract String Name();
 }

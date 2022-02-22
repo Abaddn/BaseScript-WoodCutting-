@@ -2,21 +2,21 @@ package Settings;
 
 import Enums.Level;
 import Enums.Tree;
+import Tasks.Abstractions.Blackboard;
 import UI.EventComboBox;
 import UI.UIContext;
-import com.snowygryphon.osrs.script.Bot;
+import Bot.BotProxy;
 import com.snowygryphon.osrs.script.ui.RuntimeUI;
 import com.snowygryphon.osrs.script.ui.UIMode;
 
 public class ScriptSettings {
     private final UIContext UI_CONTEXT;
-    private final Bot BOT;
+    private final BotProxy BOT;
+    private final Blackboard BLACKBOARD;
 
-    private Tree _targetTree;
-    private Level _targetLevel;
-
-    public ScriptSettings(Bot bot) {
+    public ScriptSettings(BotProxy bot, Blackboard blackboard) {
         BOT = bot;
+        BLACKBOARD = blackboard;
         var uiRuntime = setupRuntimeUI();
         UI_CONTEXT = new UIContext(uiRuntime.getDefaultUI());
 
@@ -31,7 +31,7 @@ public class ScriptSettings {
     }
 
     private void addUIElements(){
-        UI_CONTEXT.AddButton("Click me", () -> BOT.logInfo("User clicked a button"));
+        UI_CONTEXT.AddButton("Set Cutting Location", this::updateTargetLocation);
 
         var treeCombo = new EventComboBox<Tree>("Tree type", Tree.values())
                 .WithCallback(this::updateTargetTree);
@@ -40,18 +40,15 @@ public class ScriptSettings {
 
     private void updateTargetTree(Tree tree){
         BOT.logInfo("User selected tree: " + tree.getName());
-        _targetTree = tree;
+        BLACKBOARD.write("woodcutting.targetTree", tree.getName());
+    }
+
+    private void updateTargetLocation(){
+        BOT.logInfo("User updated cutting location");
+        BLACKBOARD.write("woodcutting.targetLocation", BOT.getLocalPlayer().getTile());
     }
 
     public void pollForUpdates(){
         UI_CONTEXT.PollUpdates();
-    }
-
-    public Tree getTree(){
-        return _targetTree;
-    }
-
-    public Level getTargetLevel(){
-        return _targetLevel;
     }
 }

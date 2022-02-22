@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class BotProxy {
     private Bot BOT;
-    private long LAST_INTERACTION_TIME;
+    private long LAST_INTERACTION_TIME = System.currentTimeMillis();
     private WorldObject LAST_INTERACTION_OBJECT;
     private Item LAST_INTERACTION_ITEM;
     private Widget LAST_INTERACTION_WIDGET;
@@ -43,6 +43,10 @@ public class BotProxy {
 
     public long getLastInteractionTime(){
         return LAST_INTERACTION_TIME;
+    }
+
+    public long getTimeSinceLastInteraction(){
+        return System.currentTimeMillis() - LAST_INTERACTION_TIME;
     }
     
     public void interactWith(WorldObject worldObject, String s) {
@@ -123,6 +127,16 @@ public class BotProxy {
         BOT.interactWith(bankItem);
     }
 
+    public boolean webWalkTo(WorldPos worldPos) {
+        setLastInteractionTime();
+        return BOT.webWalkTo(worldPos);
+    }
+
+    public boolean webWalkTo(BankLocation bankLocation) {
+        setLastInteractionTime();
+        return BOT.webWalkTo(bankLocation);
+    }
+
     
     public void tap(Vector2i vector2i) {
         BOT.tap(vector2i);
@@ -173,6 +187,11 @@ public class BotProxy {
         BOT.logInfo(s);
     }
 
+    public void logDebug(String s, Boolean outputToLogWindow) {
+        //todo: possibility for writing to file here?
+        if(outputToLogWindow)
+            logInfo(s);
+    }
     
     public void logWarning(String s) {
         BOT.logWarning(s);
@@ -188,6 +207,10 @@ public class BotProxy {
 
     public void sleep(int i) {
         BOT.sleep(i);
+    }
+
+    public void sleep(int lower, int upper){
+        BOT.sleep(lower + BOT.getRandom().nextInt(upper - lower));
     }
 
     public boolean doUntil(int i, Bot.IsCompletedCallback isCompletedCallback, Runnable runnable) {
@@ -226,17 +249,9 @@ public class BotProxy {
         return BOT.getPathCalculator();
     }
     
-    public WebWalker getWebWalker() {
-        return BOT.getWebWalker();
-    }
-    
-    public boolean webWalkTo(WorldPos worldPos) {
-        return BOT.webWalkTo(worldPos);
-    }
-    
-    public boolean webWalkTo(BankLocation bankLocation) {
-        return BOT.webWalkTo(bankLocation);
-    }
+//    public WebWalker getWebWalker() {
+//        return BOT.getWebWalker();
+//    }
 
     public EnergyManager getEnergyManager() {
         return BOT.getEnergyManager();
